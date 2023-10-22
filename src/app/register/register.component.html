@@ -1,0 +1,43 @@
+<header class="masthead" style="background-image: url('assets/img/ComidaChilena.jpg'); position: relative; height: 1013.667px;">
+  <div class="container">
+    <div class="intro-text" style="background: var(--bs-secondary-color); padding: 40px 0px 100px; padding-right: 0px; padding-left: 0px; margin-left: -13px; margin-right: -12px;">
+      <img src="assets/img/Captura_de_pantalla_2023-10-09_175534-removebg-preview.png" width="197" height="110">
+      <div class="intro-lead-in"></div>
+      <div class="intro-heading text-uppercase">
+        <div class="intro-lead-in"><span style="font-weight: bold;">Registro de Cuenta</span></div>
+      </div>
+      <!-- Formulario de registro -->
+      <div class="card-body d-flex flex-column align-items-center">
+        <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="text-center">
+          <div class="mb-3">
+            <input class="form-control" type="text" name="nombre" placeholder="Nombre y Apellido" [(ngModel)]="user.nombre" required>
+            <label *ngIf="showValidationMessages && !user.usuario" class="text-danger">Nombre requerido</label>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="text" name="usuario" placeholder="Nombre de Usuario" [(ngModel)]="user.usuario" required>
+            <label *ngIf="showValidationMessages && !user.usuario" class="text-danger">Usuario requerido</label>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="email" name="email" placeholder="Correo Electrónico" [(ngModel)]="user.email" required>
+            <label *ngIf="showValidationMessages && !user.usuario" class="text-danger">Correo Electronico requerido</label>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="password" name="password" placeholder="Contraseña" [(ngModel)]="user.password" required>
+            <label *ngIf="showValidationMessages && !user.usuario" class="text-danger">Contraseña requerida</label>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="password" name="confirmPassword" placeholder="Repetir Contraseña" [(ngModel)]="user.confirmPassword" required>
+            <label *ngIf="showValidationMessages && !user.usuario" class="text-danger">Contraseña requerida</label>
+          </div>
+
+          <div style="text-align: center;">
+            <button class="btn btn-primary d-block w-100"
+                    type="submit" (click)="showValidationMessages = true"
+                    style="background: #f71515;--bs-primary: #f71515;--bs-primary-rgb: 247,21,21;--bs-success: #f71515;--bs-success-rgb: 247,21,21;">Registrarse</button>
+          </div>
+          <p class="text-muted" style="padding-top: 15px;"><a routerLink="/login" class="text-muted" style="padding-top: 15px; color: #0dcaf0!important;">Volver al Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>

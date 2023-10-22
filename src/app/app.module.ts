@@ -7,6 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {NavbarComponent} from "./navbar/navbar.component";
+import { RegisterComponent } from './register/register.component';
+import { ResetComponent } from './reset/reset.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,11 +18,15 @@ import {NavbarComponent} from "./navbar/navbar.component";
     LoginComponent,
     FooterComponent,
     LandingPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
