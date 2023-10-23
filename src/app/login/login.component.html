@@ -35,6 +35,10 @@
                                                 sesión</button></div>
                                         <p class="text-muted"><a routerLink="/reset" class="text-muted">¿Olvidaste tu contraseña?</a></p>
                                         <p class="text-muted"><a routerLink="/register" class="text-muted">Registrarte</a></p>
+                                      <div *ngIf="showLoader" class="loader">
+                                        <div class="lds-dual-ring"></div>
+                                        Cargando...
+                                      </div>
                                     </form>
                                 </div>
                             </div>

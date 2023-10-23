@@ -16,15 +16,18 @@ export class LoginComponent {
     password: ''
   };
 
-  showValidationMessages = false;
+  showValidationMessages  = false;
+  showLoader :boolean = false;
 
   onSubmit() {
+    this.showLoader = true;
     if (this.user.usuario !== '' && this.user.password !== '') {
       const userData = {
 
         usuario: this.user.usuario,
         password: this.user.password
       };
+
 
       // Realizar la solicitud HTTP POST al endpoint
       this.http.post('http://localhost:8080/user/login', userData)
@@ -39,13 +42,17 @@ export class LoginComponent {
                 title: 'Bienvenido',
                 showConfirmButton: false,
                 timer: 1000
-              })
-              this.router.navigate(['']);
+              }).then(() => {
+                this.router.navigate(['']);
+                this.showLoader = false;
+              });
             } else {
               Swal.fire({
                 icon: 'error',
                 title: 'Verifica tus credenciales',
                 text: 'Los datos ingresados no son correctos',
+              }).then(() => {
+                this.showLoader = false;
               });
             }
           },
@@ -55,10 +62,12 @@ export class LoginComponent {
               icon: 'error',
               title: 'Inicio de sesión fallido',
               text: 'Reintenta mas tarde',
+            }).then(() => {
+              this.showLoader = false;
             });
-            console.error('Error al iniciar sesión:', error);
           }
         );
+
     }
   }
 }
