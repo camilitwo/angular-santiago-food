@@ -11,7 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +26,15 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ToastrModule.forRoot({
+  timeOut: 2000, // Duración de la notificación en milisegundos
+  positionClass: 'toast-top-right', // Posición de la notificación (arriba a la derecha)
+  closeButton: true, // Mostrar un botón para cerrar la notificación
+})

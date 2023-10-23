@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import Swal from "sweetalert2";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import Swal from "sweetalert2";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
   user = {
     nombre: '',
     usuario: '',
@@ -41,37 +42,26 @@ export class RegisterComponent {
         password: this.user.password
       };
 
-      // Realizar la solicitud HTTP POST al endpoint
+
       this.http.post('http://localhost:8080/user/register', userData)
         .subscribe(
           (response: any) => {
             console.log(response);
             if (response.success) {
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Registro exitoso!',
-                showConfirmButton: false,
-                timer: 1000
-              })
-              this.router.navigate(['']);
+              this.toastr.success('Registro exitoso');
+              this.router.navigate(['']).then(r => console.log('Registro exitoso'));
               console.log('Registro exitoso:', response);
             } else {
               Swal.fire({
                 icon: 'error',
                 title: 'Error al registrar',
-                text: response.data, // Muestra el mensaje de usuario existente recibido en la respuesta
+                text: response.data,
               });
             }
 
           },
           (error) => {
-            Swal.fire({
-              icon: 'error',
-              title: 'Verifica tus credenciales',
-              text: 'Los datos ingresados no son correctos',
-            });
-            // Manejar errores en la solicitud
+            this.toastr.error('Error al registrar');
             console.error('Error al registrar:', error);
           }
         );
