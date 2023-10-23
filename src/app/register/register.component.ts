@@ -39,7 +39,8 @@ export class RegisterComponent {
         nombre: this.user.nombre,
         usuario: this.user.usuario,
         email: this.user.email,
-        password: this.user.password
+        password: this.user.password,
+        tipo: 1
       };
 
 
