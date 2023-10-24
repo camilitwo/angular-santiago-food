@@ -51,7 +51,6 @@ export class RegisterComponent {
             if (response.success) {
               this.toastr.success('Registro exitoso');
               this.router.navigate(['']).then(r => console.log('Registro exitoso'));
-              console.log('Registro exitoso:', response);
             } else {
               Swal.fire({
                 icon: 'error',
@@ -62,7 +61,13 @@ export class RegisterComponent {
 
           },
           (error) => {
-            this.toastr.error('Error al registrar');
+            Swal.fire({
+              position: 'bottom-end',
+              icon: 'error',
+              title: 'Error al registrar',
+              showConfirmButton: false,
+              timer: 2000
+            })
             console.error('Error al registrar:', error);
           }
         );

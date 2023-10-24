@@ -63,7 +63,9 @@ export class LoginComponent {
               title: 'Inicio de sesión fallido',
               text: 'Reintenta mas tarde',
             }).then(() => {
+
               this.showLoader = false;
+
             });
           }
         );
