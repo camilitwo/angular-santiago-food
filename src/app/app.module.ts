@@ -12,7 +12,6 @@ import { ResetComponent } from './reset/reset.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ToastrModule } from 'ngx-toastr';
-import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +20,7 @@ import { AboutComponent } from './about/about.component';
     LandingPageComponent,
     NavbarComponent,
     RegisterComponent,
-    ResetComponent,
-    AboutComponent
+    ResetComponent
   ],
   imports: [
     BrowserModule,
