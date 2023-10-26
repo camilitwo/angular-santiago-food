@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ToastrModule } from 'ngx-toastr';
 import {AboutComponent} from "./about/about.component";
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ServicesComponent } from './services/services.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     RegisterComponent,
     ResetComponent,
     AboutComponent,
-    SignUpComponent
+    SignUpComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
