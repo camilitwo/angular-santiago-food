@@ -13,6 +13,9 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ToastrModule } from 'ngx-toastr';
 import {AboutComponent} from "./about/about.component";
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ServicesComponent } from './services/services.component';
+import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,10 @@ import {AboutComponent} from "./about/about.component";
     NavbarComponent,
     RegisterComponent,
     ResetComponent,
-    AboutComponent
+    AboutComponent,
+    SignUpComponent,
+    ServicesComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
