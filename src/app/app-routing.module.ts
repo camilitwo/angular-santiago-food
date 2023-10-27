@@ -4,12 +4,14 @@ import {LoginComponent} from "./login/login.component";
 import {LandingPageComponent} from "./landing-page/landing-page.component";
 import {RegisterComponent} from "./register/register.component";
 import {ResetComponent} from "./reset/reset.component";
+import {LandingLocatComponent} from "./landing-locat/landing-locat.component";
 
 const routes: Routes = [
   { path : '', component: LandingPageComponent },
   { path : 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'reset', component: ResetComponent },
+  { path: 'locatario', component: LandingLocatComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

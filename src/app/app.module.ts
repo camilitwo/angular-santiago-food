@@ -16,6 +16,8 @@ import {AboutComponent} from "./about/about.component";
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
+import { LandingLocatComponent } from './landing-locat/landing-locat.component';
+import { HighchartsComponent } from './highcharts/highcharts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     SignUpComponent,
     ServicesComponent,
-    ContactComponent
+    ContactComponent,
+    LandingLocatComponent,
+    HighchartsComponent
   ],
   imports: [
     BrowserModule,

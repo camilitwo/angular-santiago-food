@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header.masthead {
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 1013.667px;
+  color: #fff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.intro-text {
+  background: var(--bs-secondary-color);
+  padding: 40px 0 100px;
+}
+
+.logo {
+  width: 197px;
+  height: 110px;
+}
+
+.intro-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  margin: 40px 0;
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.card {
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-color: #f4f4f4;
+}
+
+.feedback-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card.in-preparation {
+  background-color: #ff9999; /* Rojo suave */
+}
+
+.card.delivered {
+  background-color: #99ff99; /* Verde suave */
+}
+
+.card.on-delivery {
+  background-color: #ffff99; /* Amarillo suave */
+}
