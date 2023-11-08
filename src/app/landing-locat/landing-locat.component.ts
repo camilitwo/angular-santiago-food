@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import * as Highcharts from 'highcharts';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-landing-locat',
@@ -8,29 +8,48 @@ import * as Highcharts from 'highcharts';
 })
 export class LandingLocatComponent implements AfterViewInit {
 
-  @ViewChild('chartContainer') chartContainer: ElementRef | undefined;
+  @ViewChild('myChart') chartContainer: ElementRef | undefined;
+  chartBar: any;
 
   constructor() {
   }
 
 
   ngAfterViewInit(): void {
-    // Configura tu gráfico de Highcharts aquí
-    const options: Highcharts.Options = {
-      chart: {
-        type: 'area'
-      },
-      title: {
-        text: 'Mi gráfico Highcharts'
-      },
-      series: [{
-        type: 'area', // Especifica el tipo de serie, en este caso 'area'
-        data: [1, 3, 2, 4, 5]
-      }]
-    };
+    const ctx = this.chartContainer?.nativeElement.getContext('2d');
 
-    // Crea el gráfico en el elemento chartContainer
-    // @ts-ignore
-    Highcharts.chart(this.chartContainer.nativeElement, options);
+    this.chartBar = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Alimentación', 'Transporte', 'Saúde', 'Lazer', 'Outros'],
+        datasets: [
+          {
+            label: 'Gastos por categoría',
+            data: [5, 3, 4, 7, 2],
+            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#ff5733', '#ffcc33'], // Colores de las barras
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Valor (R$)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Categoría'
+            }
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+      }
+    });
+
   }
 }

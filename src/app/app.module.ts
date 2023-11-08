@@ -18,6 +18,8 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { LandingLocatComponent } from './landing-locat/landing-locat.component';
 import { HighchartsComponent } from './highcharts/highcharts.component';
+import { NavbarLocComponent } from './navbar-loc/navbar-loc.component';
+import { GraficoTortaComponent } from './grafico-torta/grafico-torta.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { HighchartsComponent } from './highcharts/highcharts.component';
     ServicesComponent,
     ContactComponent,
     LandingLocatComponent,
-    HighchartsComponent
+    HighchartsComponent,
+    NavbarLocComponent,
+    GraficoTortaComponent
   ],
   imports: [
     BrowserModule,
