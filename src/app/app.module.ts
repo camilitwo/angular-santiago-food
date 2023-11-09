@@ -20,6 +20,8 @@ import { LandingLocatComponent } from './landing-locat/landing-locat.component';
 import { HighchartsComponent } from './highcharts/highcharts.component';
 import { NavbarLocComponent } from './navbar-loc/navbar-loc.component';
 import { GraficoTortaComponent } from './grafico-torta/grafico-torta.component';
+import { GraficoMapaComponent } from './grafico-mapa/grafico-mapa.component';
+import {HighchartsChartModule} from "highcharts-angular";
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,15 +38,17 @@ import { GraficoTortaComponent } from './grafico-torta/grafico-torta.component';
     LandingLocatComponent,
     HighchartsComponent,
     NavbarLocComponent,
-    GraficoTortaComponent
+    GraficoTortaComponent,
+    GraficoMapaComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ToastrModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ToastrModule.forRoot(),
+        HighchartsChartModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
