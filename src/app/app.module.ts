@@ -18,6 +18,7 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { LandingStoresComponent } from './landing-stores/landing-stores.component';
 import { NavbarStoresComponent } from './navbar-stores/navbar-stores.component';
+import { ChartMapComponent } from './chart-map/chart-map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { NavbarStoresComponent } from './navbar-stores/navbar-stores.component';
     ServicesComponent,
     ContactComponent,
     LandingStoresComponent,
-    NavbarStoresComponent
+    NavbarStoresComponent,
+    ChartMapComponent
   ],
   imports: [
     BrowserModule,
