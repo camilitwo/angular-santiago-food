@@ -1,97 +1,80 @@
-import { OnInit, Component, AfterViewInit } from '@angular/core';
-// @ts-ignore
+import { AfterViewInit, Component } from '@angular/core';
+
 import * as L from 'leaflet';
+
 @Component({
   selector: 'app-grafico-mapa',
   templateUrl: './grafico-mapa.component.html',
   styleUrls: ['./grafico-mapa.component.css']
 })
 export class GraficoMapaComponent implements AfterViewInit {
-  constructor() { }
 
   private map: any;
-  private statesData: any = [ {
+  private statesData: any = [{
     "type": "Feature",
     "properties": {
-      "density": 100,
-      "name": "Santiago"
+      "name": "Coors Field",
+      "amenity": "Baseball Stadium",
+      "popupContent": "This is where the Rockies play!"
     },
-      "geometry": {
-        "type": "Polygon",
-          "coordinates": [
-            [
-              [
-                -70.6666667,
-                -70.6666667
-              ]
-            ]
-          ]
-      }
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-33.45332785, -70.6618948406103]
+    }
   }];
 
-
+  constructor() { }
 
   private initMap(): void {
-    let geojson: L.GeoJSON;
+    console.log("initMap");
+    let geojson = L.geoJSON(this.statesData, {
+      pointToLayer: this.pointToLayer.bind(this),
+      onEachFeature: this.onEachFeature.bind(this)
+    });
+
     this.map = L.map('map').setView([-33.45332785, -70.6618948406103], 12);
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 3,
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, \' +\n' +
-          '                \'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, \' +\n' +
-          '                \'Imagery © <a href="http://mapbox.com">Mapbox</a>\',\n' +
-          '            id: \'examples.map-i875mjb7'
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'
     });
 
     tiles.addTo(this.map);
 
-    let info;
+    let info: any;
 
     info = new L.Control();
 
     info.onAdd = function () {
-      this._div = L.DomUtil.create("div", "info");
-      this.update();
-      return this._div;
+      (this as any)._div = L.DomUtil.create("div", "info");
+      (this as any).update();
+      return (this as any)._div;
     };
 
     info.update = function (props: any) {
-      this._div.innerHTML =
+      (this as any).innerHTML =
         "<h4>Pedidos por zona</h4>" +
-        (props ? "<b>" + props.nom + "</b><br />" : "");
+        (props ? "<b>" + props.name + "</b><br />" : "");
     };
 
-
-      info.update = function style(feature: { properties: { count_: any; }; }) {
-          function getColor(d: any) {
-              return d > 1000 ? '#800026' :
-                  d > 500  ? '#BD0026' :
-                      d > 200  ? '#E31A1C' :
-                          d > 100  ? '#FC4E2A' :
-                              d > 50   ? '#FD8D3C' :
-                                  d > 20   ? '#FEB24C' :
-                                      d > 10   ? '#FED976' :
-                                          '#FFEDA0';
-          }
-
-          return {
-            fillColor: getColor(feature.properties.count_),
-            weight: 2,
-            opacity: 1,
-            color: 'white',
-            dashArray: '3',
-            fillOpacity: 0.7
-        };
-    }
-
-
-
-
     info.addTo(this.map);
-    geojson(this.statesData).addTo(this.map);
+    geojson.addTo(this.map);
   }
-  ngAfterViewInit(): void {
-    this.initMap();
 
+  private pointToLayer(feature: any, latlng: any): any {
+    return L.marker(latlng);
+  }
+
+  private onEachFeature(feature: any, layer: any): void {
+    layer.on({
+      click: function (e: any) {
+        console.log("Punto clickeado", e.target);
+      }
+    });
+  }
+
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit");
+    this.initMap();
   }
 }
