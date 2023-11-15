@@ -19,6 +19,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LandingStoresComponent } from './landing-stores/landing-stores.component';
 import { NavbarStoresComponent } from './navbar-stores/navbar-stores.component';
 import { ChartMapComponent } from './chart-map/chart-map.component';
+import { ChartDoughnutComponent } from './chart-doughnut/chart-doughnut.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { ChartMapComponent } from './chart-map/chart-map.component';
     ContactComponent,
     LandingStoresComponent,
     NavbarStoresComponent,
-    ChartMapComponent
+    ChartMapComponent,
+    ChartDoughnutComponent
   ],
   imports: [
     BrowserModule,
