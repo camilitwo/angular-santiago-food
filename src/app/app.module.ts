@@ -20,6 +20,9 @@ import { LandingStoresComponent } from './landing-stores/landing-stores.componen
 import { NavbarStoresComponent } from './navbar-stores/navbar-stores.component';
 import { ChartMapComponent } from './chart-map/chart-map.component';
 import { ChartDoughnutComponent } from './chart-doughnut/chart-doughnut.component';
+import { ShopHomepageComponent } from './shop-homepage/shop-homepage.component';
+import { NavbarPrivateComponent } from './navbar-private/navbar-private.component';
+import { DetailCarComponent } from './detail-car/detail-car.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,10 @@ import { ChartDoughnutComponent } from './chart-doughnut/chart-doughnut.componen
     LandingStoresComponent,
     NavbarStoresComponent,
     ChartMapComponent,
-    ChartDoughnutComponent
+    ChartDoughnutComponent,
+    ShopHomepageComponent,
+    NavbarPrivateComponent,
+    DetailCarComponent
   ],
   imports: [
     BrowserModule,

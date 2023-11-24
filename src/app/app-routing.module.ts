@@ -5,6 +5,8 @@ import {LandingPageComponent} from "./landing-page/landing-page.component";
 import {RegisterComponent} from "./register/register.component";
 import {ResetComponent} from "./reset/reset.component";
 import { LandingStoresComponent } from './landing-stores/landing-stores.component';
+import {ShopHomepageComponent} from "./shop-homepage/shop-homepage.component";
+import {DetailCarComponent} from "./detail-car/detail-car.component";
 
 const routes: Routes = [
   { path : '', component: LandingPageComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'reset', component: ResetComponent },
   { path: 'stores', component: LandingStoresComponent },
+  { path: 'shop', component: ShopHomepageComponent },
+  {path: 'detail', component: DetailCarComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
