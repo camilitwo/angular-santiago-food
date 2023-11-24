@@ -16,6 +16,13 @@ import {AboutComponent} from "./about/about.component";
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
+import { LandingStoresComponent } from './landing-stores/landing-stores.component';
+import { NavbarStoresComponent } from './navbar-stores/navbar-stores.component';
+import { ChartMapComponent } from './chart-map/chart-map.component';
+import { ChartDoughnutComponent } from './chart-doughnut/chart-doughnut.component';
+import { ShopHomepageComponent } from './shop-homepage/shop-homepage.component';
+import { NavbarPrivateComponent } from './navbar-private/navbar-private.component';
+import { DetailCarComponent } from './detail-car/detail-car.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +35,14 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     SignUpComponent,
     ServicesComponent,
-    ContactComponent
+    ContactComponent,
+    LandingStoresComponent,
+    NavbarStoresComponent,
+    ChartMapComponent,
+    ChartDoughnutComponent,
+    ShopHomepageComponent,
+    NavbarPrivateComponent,
+    DetailCarComponent
   ],
   imports: [
     BrowserModule,
