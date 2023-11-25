@@ -12,7 +12,16 @@
       <ul class="navbar-nav ms-auto text-uppercase">
         <li class="nav-item"></li>
         <li class="nav-item"></li>
+      </ul>
 
+      <ul class="navbar-nav flex-nowrap ms-auto">
+        <li class="nav-item dropdown no-arrow">
+          <div *ngIf="isDetailRoute" class="nav-item dropdown no-arrow">
+            <!-- Display the account balance here -->
+            <p class="d-none d-lg-inline me-2 text-white ms-1 rounded-pill">Saldo disponible {{ saldo | currency }}</p>
+          </div>
+
+        </li>
       </ul>
       <form class="d-flex">
         <button class="btn btn-outline-primary" type="submit" [routerLink]="['/detail']">

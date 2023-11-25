@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import Swal from 'sweetalert2';
 import {Router} from "@angular/router";
+import {AuthService} from "../services/AuthService";
 
 
 @Component({
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
   user = {
     usuario: '',
     password: ''
@@ -20,7 +21,7 @@ export class LoginComponent {
   showLoader :boolean = false;
 
   onSubmit() {
-    this.showLoader = true;
+
     if (this.user.usuario !== '' && this.user.password !== '') {
       const userData = {
 
@@ -28,12 +29,13 @@ export class LoginComponent {
         password: this.user.password
       };
 
-
+      this.showLoader = true;
       // Realizar la solicitud HTTP POST al endpoint
       this.http.post('http://localhost:8080/user/login', userData)
         .subscribe(
           (response: any) => {
             if (response.success) {
+              this.authService.setAuthenticationStatus(true);
               // La solicitud se completó con éxito, el inicio de sesión fue exitoso
               console.log('Inicio de sesión exitoso');
               Swal.fire({
@@ -43,7 +45,12 @@ export class LoginComponent {
                 showConfirmButton: false,
                 timer: 1000
               }).then(() => {
-                this.router.navigate(['']);
+
+                if(this.user.usuario === 'admin'){
+                  this.router.navigate(['/stores']);
+                }else
+                  this.router.navigate(['/shop']);
+
                 this.showLoader = false;
               });
             } else {
